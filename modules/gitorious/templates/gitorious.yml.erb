@@ -1,0 +1,57 @@
+development:
+
+test:
+
+production: 
+  # The session secret key (`apg -m 64` is always useful for this kinda stuff)
+  cookie_secret: "dajEkGivyigUk*quinojedsInneisUfteyfsoktiekDydaynjudejhylladCandyeckjenweibabpaggyuWeimVufOtuvjatdylWecfuibDajNoddivugviccarshutsteystajtoqueyctulinWyeczudlotsurnOcyebdylgyabmecatHirsupfogOvawtynVutlygattyivRibpeHeshebsyalmOcEvyekOoShmajyuhobcyomjijopObSayTashocOlHicNiweewrijvathDuWemyaudPovTuhytOshCokwysAitFiqui^quip1dikedAknunshAcpocNenvuckupAmGheHonFonyokveidlodMeedbaydHodethaul"
+
+  # The path where git repositories are stored. The actual (bare) repositories resides
+  # in repository_base_path/#{project.slug}/#{repository.name}.git/:
+  repository_base_path: "/home/git/"
+
+  # Stuff that's in the html <head>. custom stats javascript code etc
+  extra_html_head_data: 
+  
+  # System message that will appear on all pages if present
+  system_message: 
+  
+  # Port the ./script/gitorious script should use:
+  gitorious_client_port: 80
+
+  # Host the ./script/gitorious script should use:
+  gitorious_client_host: <%= fqdn %>
+
+  # Host which is serving the gitorious app, eg "gitorious.org"
+  gitorious_host: <%= fqdn %>
+
+  # User which is running git daemon
+  gitorious_user: git
+
+  # Email spam on server errors to:
+  exception_notification_emails:  
+
+  # Mangle visible e-mail addresses (spam protection)
+  mangle_email_addresses: true
+
+  # Enable or Disable Public Mode (true) or Private Mode (false)
+  public_mode: true
+
+  # Define your locale
+  locale: en
+
+  # Where should we store generated tarballs?
+  # (should be readable by webserver, since we tell it to send the file using X-Sendfile)
+  archive_cache_dir: "/var/www/gitorious/tmp/tarballs"
+  # Which directory should we work in when we generate tarballs, before moving 
+  # them to the above dir?
+  archive_work_dir: "/tmp/tarballs-work"
+
+  # is it only site admins who can create new projects?
+  only_site_admins_can_create_projects: false
+  
+  # Should we hide HTTP clone urls?
+  hide_http_clone_urls: false
+
+  # Is this gitorious.org? Read: should we have a very flashy homepage?
+  is_gitorious_dot_org: false
