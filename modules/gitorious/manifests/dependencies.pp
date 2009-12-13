@@ -110,7 +110,7 @@ class gitorious::depends {
     cwd => "/root",
     timeout => "-1",  
   }
-  $gems = ["mime-types", "oniguruma", "textpow", "chronic", "BlueCloth", "ruby-yadis", "ruby-openid", "rmagick", "geoip", "ultrasphinx", "rspec", "rspec-rails", "RedCloth", "daemons",  "diff-lcs", "highline", "fastthread", "hoe", "oauth","rack", "rake", "ruby-hmac", "passenger"]
+  $gems = ["mime-types", "oniguruma", "textpow", "chronic", "facter", "puppet", "BlueCloth", "ruby-yadis", "ruby-openid", "rmagick", "geoip", "ultrasphinx", "rspec", "rspec-rails", "RedCloth", "daemons",  "diff-lcs", "highline", "fastthread", "hoe", "oauth","rack", "rake", "ruby-hmac", "passenger"]
 
   package {$gems:
     ensure => installed,
