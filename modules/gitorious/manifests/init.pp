@@ -162,6 +162,7 @@ class gitorious::config {
         require => Exec["git_pull_gitorious"],
     }
 
+    $mail_server = "smtp.google.com"
     file {"/var/www/gitorious/config/environments/production.rb":
         content => template("gitorious/production.rb.erb"),
         ensure => present,

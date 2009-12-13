@@ -36,7 +36,7 @@ SslRequirement.disable_ssl_check = true
 #config.action_mailer.raise_delivery_errors = false
 config.action_mailer.delivery_method = :sendmail
 
-ActionMailer::Base.default_url_options[:host] = "europemail.eur.adobe.com"
+ActionMailer::Base.default_url_options[:host] = "<%= $mail_server %>"
   #YAML.load_file(File.join(RAILS_ROOT, "config/gitorious.yml"))[RAILS_ENV]["gitorious_host"]
 # ActionMailer::Base.default_url_options[:protocol] = 'https'
 # Disable delivery errors, bad email addresses will be ignored
