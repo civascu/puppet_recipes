@@ -1,0 +1,6 @@
+modules/gitorious - Puppet recipe for install Gitorious (www.gitorious.com) on a CentOS 5.3/5.4 machine.
+  Dependencies: rubygems, puppet 0.25.1
+  Usage instructions:
+    1. clone the repo into /etc/puppet/
+    2. Run `puppet /etc/puppet/sites.pp`
+    3. Open http://yourserver.yourdomain/
