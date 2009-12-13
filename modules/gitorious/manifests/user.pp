@@ -10,7 +10,7 @@ class gitorious::user {
         shell   => "/bin/bash",
         managehome => true,
         password => '$1$5dZQgQSq$POqlSWnuiYZ7d1VXfgXGo.',
-        reqwuire => Package["ruby-shadow"]
+        require => Package["ruby-shadow"]
     }
 
     file { "/home/git/.ssh":

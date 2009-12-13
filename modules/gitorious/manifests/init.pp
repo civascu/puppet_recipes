@@ -2,14 +2,14 @@
 # based on [gitorious]/doc/recipes/centos5.2 document, with additions
 #
 
+import "utils.pp"
 import "user.pp"
 import "services.pp"
 import "dependencies.pp"
 
-
 class gitorious {
 
-  $rpm_packages = ["gcc", "g++", "ruby", "rubygems"]i
+  $rpm_packages = ["gcc", "g++", "ruby", "rubygems"]
 
   package {$rpm_packages:
     ensure => installed,
@@ -178,6 +178,7 @@ class gitorious::config {
     exec {"migrate_db":
         command => "rake db:migrate RAILS_ENV=production",
         cwd => "/var/www/gitorious/",
+        path => "/usr/bin",
         require => [Notify["dependencies_done"], Package["mysql-devel"], Package["rake"], Exec["create_db"]],
         #TODO: figure out the unless condition; otherwise the db will get overwritten periodically
     }
@@ -190,7 +191,7 @@ class gitorious::config {
     }
 
     notify {"gitorious_configured":
+}
       message => "Finished configuring Gitorious",
       require => Exec["bootstrap_sphinx"],
     }
-}
