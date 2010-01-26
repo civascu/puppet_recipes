@@ -1,5 +1,5 @@
-LoadModule passenger_module /usr/lib/ruby/gems/1.8/gems/passenger-2.2.7/ext/apache2/mod_passenger.so
-PassengerRoot /usr/lib/ruby/gems/1.8/gems/passenger-2.2.7
+LoadModule passenger_module /usr/<%= libdir %>/ruby/gems/1.8/gems/passenger-2.2.7/ext/apache2/mod_passenger.so
+PassengerRoot /usr/<%= libdir %>/ruby/gems/1.8/gems/passenger-2.2.7
 PassengerRuby /usr/bin/ruby
 
 <VirtualHost *:80>

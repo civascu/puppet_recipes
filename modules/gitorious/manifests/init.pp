@@ -57,6 +57,11 @@ class gitorious::passenger {
         require => Notify["dependencies_done"],
     }
 
+    $libdir = $architecture?{
+      x86_64 => "lib64",
+      default => "lib",
+    }
+
     file {"passenger.conf":
         path => "/etc/httpd/conf.d/passenger.conf",
         content => template("gitorious/passenger.conf.erb"),
