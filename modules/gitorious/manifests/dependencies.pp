@@ -110,7 +110,7 @@ class gitorious::depends {
     cwd => "/root",
     timeout => "-1",  
   }
-  $gems = ["mime-types", "oniguruma", "textpow", "chronic", "facter", "puppet", "BlueCloth", "ruby-yadis", "ruby-openid", "rmagick", "geoip", "ultrasphinx", "rspec", "rspec-rails", "RedCloth", "daemons",  "diff-lcs", "highline", "fastthread", "hoe", "oauth","rack", "rake", "ruby-hmac", "passenger"]
+  $gems = ["mime-types", "oniguruma", "textpow", "chronic", "facter", "puppet", "BlueCloth", "ruby-yadis", "ruby-openid", "rmagick", "geoip", "ultrasphinx", "rspec", "rspec-rails", "RedCloth", "daemons",  "diff-lcs", "highline", "fastthread", "hoe", "oauth","rack", "rake", "ruby-hmac"]
 
   package {$gems:
     ensure => installed,
@@ -136,6 +136,12 @@ class gitorious::depends {
     require => Package[$gems]
   }
 
+  package { "passenger":
+    ensure => "2.2.7",
+    provider => gem,
+    require => Package[$gems],
+  }
+
   exec {"install_json":
     command => "gem install json",
     cwd => "/root/",
@@ -144,6 +150,6 @@ class gitorious::depends {
 
   notify {"dependencies_done":
     message => "Gitorious dependencies installed. moving on",
-    require => [Package[$gems], Package["stomp"], Package["rdiscount"], Exec["install_json"], Package["echoe"]],
+    require => [Package[$gems], Package["stomp"], Package["rdiscount"], Exec["install_json"], Package["echoe"], Package["passenger"]],
   }
 }
