@@ -196,3 +196,4 @@ class gitorious::config {
       message => "Finished configuring Gitorious",
       require => Exec["bootstrap_sphinx"],
     }
+  }
