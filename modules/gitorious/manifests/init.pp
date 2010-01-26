@@ -113,6 +113,7 @@ class gitorious::core {
         recurse => true,
         require => Exec["git_pull_gitorious"],
     }
+
     file {"/var/www/gitorious/tmp": 
         ensure => directory,
         owner => "git",
@@ -192,7 +193,6 @@ class gitorious::config {
     }
 
     notify {"gitorious_configured":
-}
       message => "Finished configuring Gitorious",
       require => Exec["bootstrap_sphinx"],
     }
