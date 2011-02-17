@@ -86,14 +86,14 @@ class gitorious::depends {
     install_from_remote_tarball { "onig-5.9.1":
         url => "http://www.geocities.jp/kosako3/oniguruma/archive/onig-5.9.1.tar.gz",
         cwd => "/root/",
-        #unless => "less /usr/local/include/oniguruma.h",
+        unless => "less /usr/local/include/oniguruma.h",
         require => [Exec["ldconfig"], Package[$package_list]],
     }
 
     install_from_remote_tarball {"sphinx-0.9.8":
         url => "http://www.sphinxsearch.com/downloads/sphinx-0.9.8.tar.gz",
         cwd => "/root/",
-        #unless => "less /usr/local/etc/sphinx.conf.dist",
+        unless => "less /usr/local/etc/sphinx.conf.dist",
         require => [Exec["ldconfig"], Package[$package_list]],
     }
 
